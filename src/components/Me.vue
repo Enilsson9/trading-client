@@ -3,7 +3,7 @@
     <Nav />
       <h1>Me</h1>
       <p>{{ text.msg }}</p>
-      <p><img src="http://www.student.bth.se/~edni17/dbwebb-kurser/ramverk1/me/kmom10/proj/htdocs/img/me.jpg" style="width: 250px" class="img-fluid img-thumbnail"></p>
+      <p><img src="../assets/me-2019.png" style="width: 250px" class="img-fluid img-thumbnail"></p>
 </main>
 </template>
 
@@ -29,7 +29,6 @@ export default {
     getMe() {
       axios.get('https://me-api.edwardnilsson.se/')
       .then(res => this.text = res.data.data)
-      .catch(err => console.log(err));
     }
   }
 }
