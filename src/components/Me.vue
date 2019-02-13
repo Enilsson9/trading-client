@@ -1,13 +1,15 @@
 <template>
 <main>
     <Nav />
-    <h1>Me</h1>
-    <p>{{ text }}</p>
+      <h1>Me</h1>
+      <p>{{ text.msg }}</p>
+      <p><img src="http://www.student.bth.se/~edni17/dbwebb-kurser/ramverk1/me/kmom10/proj/htdocs/img/me.jpg" style="width: 250px" class="img-fluid img-thumbnail"></p>
 </main>
 </template>
 
 <script>
 import Nav from './Nav.vue'
+import axios from 'axios';
 
 export default {
   name: 'Me',
@@ -25,16 +27,9 @@ export default {
   },
   methods: {
     getMe() {
-      let that = this;
-      fetch("https://me-api.jsramverk.me")
-      .then(function(response) {
-          return response.json();
-      })
-      .then(function(result) {
-          // eslint-disable-next-line
-          console.log(result);
-          that.text = result.description;
-      });
+      axios.get('https://me-api.edwardnilsson.se/')
+      .then(res => this.text = res.data.data)
+      .catch(err => console.log(err));
     }
   }
 }

@@ -30,7 +30,7 @@ export default {
     getText(kmom) {
       let that = this;
       that.text = "";
-      fetch("https://me-api.jsramverk.me/reports/" + kmom)
+      fetch("https://me-api.edwardnilsson.se/reports/" + kmom)
       .then(function(response) {
           return response.json();
       })

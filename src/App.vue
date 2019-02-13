@@ -29,8 +29,8 @@ html {
     width: 62em;
     margin: 0 auto;
     padding: 2em 6em 8em;
-    background-color: #0074d9;
-    border-top: 4px solid #0be6d7;
+    background-color: black;
+    border-top: 4px solid green;
     color: white;
 }
 
