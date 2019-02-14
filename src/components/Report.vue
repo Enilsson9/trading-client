@@ -2,9 +2,8 @@
 <main>
     <Nav />
     <h2>{{ $route.params.kmom }}</h2>
-    <div class="question" v-for="question in questions" :key="question.key">
-      <p><strong>{{ question.question }}</strong></p>
-      <p>{{ question.answer }}</p>
+    <div v-cloak>
+      <p>{{ answer }}</p>
     </div>
 </main>
 
@@ -12,6 +11,7 @@
 
 <script>
 import Nav from './Nav.vue'
+import axios from 'axios';
 
 export default {
   name: 'Report',
@@ -20,33 +20,23 @@ export default {
   },
   data() {
     return {
-      questions: [],
+      answer: []
+    }
+  },
+  watch: {
+   '$route.params.kmom': function (kmom) {
+      axios.get('https://me-api.edwardnilsson.se/reports/' + kmom)
+      .then(res => this.answer = res.data.data.msg)
     }
   },
   mounted() {
-    this.getText(this.$route.params.kmom);
+    this.getReport(this.$route.params.kmom);
   },
   methods: {
-    getText(kmom) {
-      let that = this;
-      that.text = "";
-      fetch("https://me-api.edwardnilsson.se/reports/" + kmom)
-      .then(function(response) {
-          return response.json();
-      })
-      .then(function(result) {
-          // eslint-disable-next-line
-          console.log(result);
-          that.questions = result.data.map((question, index) => {
-            return {
-              key: index,
-              question: question.question,
-              answer: question.answer
-            };
-          });
-      });
+    getReport(kmom) {
+      axios.get('https://me-api.edwardnilsson.se/reports/' + kmom)
+      .then(res => this.answer = res.data.data.msg)
     }
-
   }
 }
 </script>
@@ -57,7 +47,15 @@ h2 {
   text-transform: uppercase;
 }
 
+p {
+  white-space: pre-line;
+  font-size: 1.25em;
+}
 .question {
   margin-bottom: 2em;
+}
+
+[v-cloak] {
+  display: none;
 }
 </style>

@@ -3,7 +3,7 @@
     <Nav />
       <h1>Me</h1>
       <p>{{ text.msg }}</p>
-      <p><img src="../assets/me-2019.png" style="width: 250px" class="img-fluid img-thumbnail"></p>
+      <p><img src="../assets/me-2019.jpg" style="width: 250px" class="img-fluid img-thumbnail"></p>
 </main>
 </template>
 
