@@ -2,10 +2,11 @@
 <main>
   <Nav />
   <div>
-      <h1>Login</h1>
+      <h1>Register</h1>
       <input v-model="email" type="email" placeholder="Email" required><br>
       <input v-model="password" type="password" placeholder="Password" required> <br>
       <button @click="submit">Submit</button>
+
   </div>
 </main>
 </template>
@@ -36,17 +37,16 @@ export default {
         }
       }
 
-      axios.post('https://me-api.edwardnilsson.se/login', body, config)
+      axios.post('https://me-api.edwardnilsson.se/register', body, config)
         .then((result) => {
-          //save token
-          localStorage.setItem('id_token', result.data.data.token);
+          // eslint-disable-next-line
+          console.log(result);
           //redirect
-          this.$router.push("report");
+          this.$router.push("login")
         })
         .catch((err) => {
           // eslint-disable-next-line
-          console.log("Could not log in", err);
-          localStorage.removeItem('id_token');
+          console.log("Could not register", err);
         })
     }
   }

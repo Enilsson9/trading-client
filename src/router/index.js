@@ -4,6 +4,8 @@ import Me from '@/components/Me'
 import Report from '@/components/Report'
 import Login from '@/components/Login'
 import AddReport from '@/components/AddReport'
+import Register from '@/components/Register'
+import Logout from '@/components/Logout'
 
 Vue.use(Router)
 
@@ -28,6 +30,16 @@ export default new Router({
         path: '/report',
         name: 'Report',
         component: AddReport
+    },
+    {
+        path: '/register',
+        name: 'Register',
+        component: Register
+    },
+    {
+        path: '/logout',
+        name: 'Log out',
+        component: Logout
     }
   ]
 })

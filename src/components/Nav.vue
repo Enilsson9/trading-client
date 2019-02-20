@@ -4,8 +4,11 @@
         <li><router-link to="/">Me</router-link></li>
         <li><router-link to="/reports/kmom01">kmom01</router-link></li>
         <li><router-link to="/reports/kmom02">kmom02</router-link></li>
-        <li><router-link to="/Login">Login</router-link></li>
-        <li><router-link to="/report">Report</router-link></li>
+        <li><router-link to="/report" v-if="isLogged">Add</router-link></li>
+        <li><router-link to="/register" v-if="!isLogged">Register</router-link></li>
+        <li><router-link to="/login" v-if="!isLogged">Login</router-link></li>
+        <li><router-link to="/logout" v-if="isLogged">Logout</router-link></li>
+
 
     </ul>
 </nav>
@@ -13,8 +16,20 @@
 
 <script>
 export default {
-  name: 'Me',
-  props: { }
+  name: 'Nav',
+  props: { },
+  data () {
+    return {
+      isLogged: this.checkIfIsLogged()
+    }
+  },
+  methods: {
+    checkIfIsLogged() {
+      let token = localStorage.getItem('id_token');
+      return token;
+    }
+  }
+
 }
 </script>
 
