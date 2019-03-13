@@ -3,8 +3,9 @@
   <Nav />
   <div>
       <h1>Add</h1>
-      Kmom: <input v-model="kmom" type="number" placeholder="1"><br>
-      Content: <input v-model="content" type="text" placeholder="Your report here"> <br>
+      <h3>Kmom:</h3><input v-model="kmom" type="number" placeholder="0"><br>
+      <h3>Content:</h3><textarea v-model="content" type="text" rows="10" cols="75" placeholder="Your report here"></textarea>
+      <br>
       <button @click="submit">Submit</button>
   </div>
 </main>
@@ -54,5 +55,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+button {
+  background-color: green; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+}
 
 </style>

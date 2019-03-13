@@ -6,6 +6,7 @@ import Login from '@/components/Login'
 import AddReport from '@/components/AddReport'
 import Register from '@/components/Register'
 import Logout from '@/components/Logout'
+import UpdateReport from '@/components/UpdateReport'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
         path: '/logout',
         name: 'Log out',
         component: Logout
+    },
+    {
+        path: '/update',
+        name: 'Update',
+        component: UpdateReport
     }
   ]
 })

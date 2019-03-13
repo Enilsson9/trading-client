@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy": "npm run build && rsync -av dist/* deploy@edwardnilsson.se:/var/www/me-vue.edwardnilsson.se/html/"
+    "deploy": "rsync -av dist/* deploy@edwardnilsson.se:/var/www/me-vue.edwardnilsson.se/html/",
+    "test": "mocha test/**/*.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -18,8 +19,12 @@
     "@vue/cli-plugin-eslint": "^3.2.1",
     "@vue/cli-service": "^3.2.0",
     "babel-eslint": "^10.0.1",
+    "chromedriver": "^2.46.0",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0-0",
+    "http-server": "^0.11.1",
+    "mocha": "^6.0.2",
+    "selenium-webdriver": "^3.6.0",
     "vue-template-compiler": "^2.5.17"
   },
   "eslintConfig": {

@@ -2,11 +2,11 @@
 <main>
   <Nav />
   <div>
-      <h1>Register</h1>
-      <input v-model="email" type="email" placeholder="Email" required><br>
-      <input v-model="password" type="password" placeholder="Password" required> <br><br>
+      <h1>Update</h1>
+      <h3>Kmom:</h3><input v-model="kmom" type="number" placeholder="0"><br>
+      <h3>Content:</h3><textarea v-model="content" type="text" rows="10" cols="75" placeholder="Your report here"></textarea>
+      <br>
       <button @click="submit">Submit</button>
-
   </div>
 </main>
 </template>
@@ -23,30 +23,30 @@ export default {
   },
   data() {
     return {
-      email: '',
-      password: ''
+      kmom: '',
+      content: ''
     }
   },
   methods: {
     submit() {
-      const body = 'email=' + this.email + '&password=' + this.password;
-
+      const body = 'kmom=' + this.kmom + '&content=' + this.content
+      const currentToken = localStorage.getItem('id_token');
       const config = {
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'x-access-token': currentToken
         }
       }
 
-      axios.post('https://me-api.edwardnilsson.se/register', body, config)
+      axios.post('https://me-api.edwardnilsson.se/reports/update', body, config)
         .then((result) => {
           // eslint-disable-next-line
           console.log(result);
-          //redirect
-          this.$router.push("login")
+
         })
         .catch((err) => {
           // eslint-disable-next-line
-          console.log("Could not register", err);
+          console.log("Could not update report", err);
         })
     }
   }
@@ -56,15 +56,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-input[type=text] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-}
-
 button {
-  background-color: blue; /* Green */
+  background-color: green; /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -73,7 +66,5 @@ button {
   display: inline-block;
   font-size: 20px;
 }
-
-
 
 </style>
