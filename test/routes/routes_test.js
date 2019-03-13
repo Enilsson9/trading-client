@@ -19,7 +19,7 @@ test.describe("Me-vue", function() {
         this.timeout(20000);
         browser = new Builder().forBrowser('chrome').build();
 
-        browser.get("http://localhost:8080/#/");
+        browser.get("http://me-vue.edwardnilsson.se/");
         done();
     });
 
