@@ -7,6 +7,7 @@ import AddReport from '@/components/AddReport'
 import Register from '@/components/Register'
 import Logout from '@/components/Logout'
 import UpdateReport from '@/components/UpdateReport'
+import Chat from '@/components/Chat'
 
 Vue.use(Router)
 
@@ -46,6 +47,11 @@ export default new Router({
         path: '/update',
         name: 'Update',
         component: UpdateReport
+    },
+    {
+        path: '/chat',
+        name: 'Chat',
+        component: Chat
     }
   ]
 })

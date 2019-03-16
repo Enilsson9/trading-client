@@ -11,8 +11,7 @@
         <li><router-link to="/register" v-if="!isLogged">Register</router-link></li>
         <li><router-link to="/login" v-if="!isLogged">Login</router-link></li>
         <li><router-link to="/logout" v-if="isLogged">Logout</router-link></li>
-
-
+        <li><router-link to="/chat">Chat</router-link></li>
     </ul>
 </nav>
 </template>
