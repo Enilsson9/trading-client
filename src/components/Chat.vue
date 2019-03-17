@@ -5,6 +5,9 @@
   <div class="card mt-3 text-white bg-dark">
       <div class="card-body">
           <div class="card-body">
+              <div class="messages" v-for="(msg, index) in logs" :key="index">
+                  <p><span class="font-weight-bold">{{ msg.user }}: </span>{{ msg.message }}</p>
+              </div>
               <div class="messages" v-for="(msg, index) in messages" :key="index">
                   <p><span class="font-weight-bold">{{ msg.user }}: </span>{{ msg.message }}</p>
               </div>
@@ -42,7 +45,8 @@ export default {
             user: '',
             message: '',
             messages: [],
-            socket : io('https://me-api.edwardnilsson.se')
+            logs: [],
+            socket : io('localhost:8333')
         }
     },
     methods: {
@@ -53,13 +57,18 @@ export default {
                 user: this.user,
                 message: this.message
             });
-            this.message = ''
+            this.messages.push({user: this.user, message: this.message});
+            this.message = '';
         }
     },
     mounted() {
-        this.socket.on('MESSAGE', (data) => {
-            this.messages.push(data);
+        this.socket.on('MESSAGES', (data) => {
+            //console.log(data);
+            for (var i = 0; i < data.length; i++) {
+              this.logs.push({user:data[i].user, message:data[i].message});
+            }
         });
+
     }
 }
 </script>
