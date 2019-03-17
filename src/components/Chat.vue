@@ -46,7 +46,7 @@ export default {
             message: '',
             messages: [],
             logs: [],
-            socket : io('localhost:8333')
+            socket : io('me-api.edwardnilsson.se')
         }
     },
     methods: {
