@@ -47,6 +47,7 @@ export default {
             messages: [],
             logs: [],
             socket : io('me-api.edwardnilsson.se')
+            //socket : io('localhost:8333')
         }
     },
     methods: {
@@ -57,13 +58,15 @@ export default {
                 user: this.user,
                 message: this.message
             });
-            this.messages.push({user: this.user, message: this.message});
+
             this.message = '';
         }
     },
     mounted() {
         this.socket.on('MESSAGES', (data) => {
-            //console.log(data);
+            //push new message
+            this.logs.push(data);
+            //get from mongodb
             for (var i = 0; i < data.length; i++) {
               this.logs.push({user:data[i].user, message:data[i].message});
             }
