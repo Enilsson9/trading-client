@@ -64,7 +64,7 @@ export default {
     },
     mounted() {
         this.socket.on('MESSAGES', (data) => {
-            if (data.length > 0) {
+            if (data.length > 0 || Object.keys(data).length > 0) {
               //push new message
               this.logs.push(data);
               //get from mongodb
