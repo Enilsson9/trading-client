@@ -64,11 +64,13 @@ export default {
     },
     mounted() {
         this.socket.on('MESSAGES', (data) => {
-            //push new message
-            this.logs.push(data);
-            //get from mongodb
-            for (var i = 0; i < data.length; i++) {
-              this.logs.push({user:data[i].user, message:data[i].message});
+            if (data.length > 0) {
+              //push new message
+              this.logs.push(data);
+              //get from mongodb
+              for (var i = 0; i < data.length; i++) {
+                this.logs.push({user:data[i].user, message:data[i].message});
+              }
             }
         });
 
