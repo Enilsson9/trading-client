@@ -19,7 +19,7 @@ test.describe("Me-vue", function() {
         this.timeout(20000);
         browser = new Builder().forBrowser('chrome').build();
 
-        browser.get("http://me-vue.edwardnilsson.se/");
+        browser.get("http://localhost:8080");
         done();
     });
 
@@ -56,27 +56,6 @@ test.describe("Me-vue", function() {
             });
         });
     }
-
-
-
-    // Test case
-    test.it("Test index", function(done) {
-        let promise = browser.getTitle();
-
-        promise.then(function(title) {
-            assert.equal(title, "me-vue");
-        });
-
-        browser.getTitle().then(function(title) {
-            assert.equal(title, "me-vue");
-        });
-
-        assertH1("Me");
-        matchUrl("#/");
-
-        done();
-    });
-
 
 
     test.it("Test go to Register", function(done) {

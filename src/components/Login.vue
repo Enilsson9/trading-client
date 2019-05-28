@@ -1,11 +1,14 @@
 <template>
 <main>
   <Nav />
-  <div>
+  <div class="container">
       <h1>Login</h1>
-      <input v-model="email" type="email" placeholder="Email" required><br>
-      <input v-model="password" type="password" placeholder="Password" required> <br><br>
-      <button @click="submit">Submit</button>
+      <form v-on:submit.prevent="submit">
+          <input v-model="email" type="email" placeholder="Email" required><br>
+          <input v-model="password" type="password" placeholder="Password" required> <br><br>
+          <button type="submit">Submit</button>
+      </form>
+
   </div>
 </main>
 </template>
@@ -36,36 +39,22 @@ export default {
         }
       }
 
-      axios.post('https://me-api.edwardnilsson.se/login', body, config)
+      axios.post('http://localhost:8333/login', body, config)
         .then((result) => {
           //save token
           localStorage.setItem('id_token', result.data.data.token);
+          //save email
+          localStorage.setItem('local_email', this.email);
           //redirect
-          this.$router.push("report");
+          this.$router.push("/");
         })
         .catch((err) => {
           // eslint-disable-next-line
           console.log("Could not log in", err);
           localStorage.removeItem('id_token');
+          localStorage.removeItem('local_email');
         })
     }
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
-
-button {
-  background-color: blue; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-}
-
-</style>

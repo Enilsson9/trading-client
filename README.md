@@ -1,6 +1,6 @@
 # me-vue
 
-1. User should see an index page on /.
+1. User should see a "Login" page on Index when not logged in
 2. User should be redirected to "Login" from navbar
 3. User should be redirected to "Register" from navbar
 

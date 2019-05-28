@@ -1,13 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Me from '@/components/Me'
-import Report from '@/components/Report'
 import Login from '@/components/Login'
-import AddReport from '@/components/AddReport'
 import Register from '@/components/Register'
 import Logout from '@/components/Logout'
-import UpdateReport from '@/components/UpdateReport'
-import Chat from '@/components/Chat'
+
 
 Vue.use(Router)
 
@@ -19,19 +16,9 @@ export default new Router({
         component: Me
     },
     {
-        path: '/reports/:kmom',
-        name: 'Redovisning',
-        component: Report
-    },
-    {
       path: '/login',
       name: 'Log in',
       component: Login
-    },
-    {
-        path: '/report',
-        name: 'Report',
-        component: AddReport
     },
     {
         path: '/register',
@@ -42,16 +29,6 @@ export default new Router({
         path: '/logout',
         name: 'Log out',
         component: Logout
-    },
-    {
-        path: '/update',
-        name: 'Update',
-        component: UpdateReport
-    },
-    {
-        path: '/chat',
-        name: 'Chat',
-        component: Chat
     }
   ]
 })

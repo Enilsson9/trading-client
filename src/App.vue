@@ -12,7 +12,7 @@ export default {
 </script>
 
 <style>
-@import url('https://rsms.me/inter/inter-ui.css');
+/*@import url('https://rsms.me/inter/inter-ui.css');
 
 * {
     margin: 0;
@@ -26,7 +26,7 @@ html {
 }
 
 .app {
-    width: 62em;
+    width: 100%;
     margin: 0 auto;
     padding: 2em 6em 8em;
     background-color: black;
@@ -48,4 +48,13 @@ p {
     font-size: 2em;
     font-weight: normal;
 }
+
+@media only screen and (max-width: 600px) {
+
+}
+*/
+
+
+
+
 </style>

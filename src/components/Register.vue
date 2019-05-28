@@ -1,7 +1,7 @@
 <template>
 <main>
   <Nav />
-  <div>
+  <div class="container">
       <h1>Register</h1>
       <input v-model="email" type="email" placeholder="Email" required><br>
       <input v-model="password" type="password" placeholder="Password" required> <br><br>
@@ -37,7 +37,7 @@ export default {
         }
       }
 
-      axios.post('https://me-api.edwardnilsson.se/register', body, config)
+      axios.post('http://localhost:8333/register', body, config)
         .then((result) => {
           // eslint-disable-next-line
           console.log(result);
@@ -52,28 +52,3 @@ export default {
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
-input[type=text] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-}
-
-button {
-  background-color: blue; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-}
-
-
-
-</style>

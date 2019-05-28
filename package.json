@@ -1,5 +1,5 @@
 {
-  "name": "me-vue",
+  "name": "trading-client",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "rickshaw": "^1.6.6",
     "socket.io-client": "^2.2.0",
     "vue": "^2.5.17",
     "vue-router": "^3.0.2"
