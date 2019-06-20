@@ -43,8 +43,13 @@ import Nav from './Nav.vue'
 import axios from 'axios';
 
 import io from 'socket.io-client';
+
 import Rickshaw from 'rickshaw';
+
+//const Rickshaw = require('rickshaw');
+
 import 'rickshaw/rickshaw.min.css';
+
 
 export default {
   name: 'Me',
@@ -55,7 +60,7 @@ export default {
   data() {
     return {
         text: "",
-        socket: io.connect("http://localhost:3000"),
+        socket: io.connect("https://socket.edwardnilsson.se"),
         stocks: "",
         currentPrice: "",
         sell: "",
@@ -189,7 +194,7 @@ export default {
             }
         }
 
-        axios.post('http://localhost:8333/update', body , config)
+        axios.post('https://project-api.edwardnilsson.se/update', body , config)
         .then((result) => {
           // eslint-disable-next-line
           this.getData();
@@ -221,7 +226,7 @@ export default {
             'x-access-token': this.currentToken
             }
         }
-        axios.post('http://localhost:8333/update', body, config)
+        axios.post('https://project-api.edwardnilsson.se/update', body, config)
         .then((result) => {
             this.getData();
             // eslint-disable-next-line
@@ -258,7 +263,7 @@ export default {
         const body = 'email=' + this.email +
         '&stocks=' + this.text.stocks +  '&price=' + (parseFloat(this.text.funds) + parseFloat(this.funds));
 
-        axios.post('http://localhost:8333/update', body, config)
+        axios.post('https://project-api.edwardnilsson.se/update', body, config)
         .then((result) => {
             this.getData();
             // eslint-disable-next-line
@@ -279,7 +284,7 @@ export default {
             }
         }
 
-        axios.post('http://localhost:8333/data', 'email=' + localStorage.getItem('local_email'), config)
+        axios.post('https://project-api.edwardnilsson.se/data', 'email=' + localStorage.getItem('local_email'), config)
         .then((result) => {
           this.text = result.data
         })

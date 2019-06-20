@@ -39,7 +39,7 @@ export default {
         }
       }
 
-      axios.post('http://localhost:8333/login', body, config)
+      axios.post('https://project-api.edwardnilsson.se/login', body, config)
         .then((result) => {
           //save token
           localStorage.setItem('id_token', result.data.data.token);

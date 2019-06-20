@@ -37,7 +37,7 @@ export default {
         }
       }
 
-      axios.post('http://localhost:8333/register', body, config)
+      axios.post('https://project-api.edwardnilsson.se/register', body, config)
         .then((result) => {
           // eslint-disable-next-line
           console.log(result);
