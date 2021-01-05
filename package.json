@@ -10,7 +10,7 @@
     "test": "mocha test/**/*.js"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "rickshaw": "^1.6.5",
     "socket.io-client": "^2.2.0",
     "vue": "^2.5.17",
